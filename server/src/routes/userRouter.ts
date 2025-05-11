@@ -3,9 +3,11 @@ import User from "../schema/userSchema";
 import { createUser,findUser } from "../db";
 import jwt from "jsonwebtoken"
 import "dotenv/config"
+import { PrismaClient } from "../../generated/prisma";
 
 const router= Router();
 const secret= process.env.SECRET??"";
+
 
 
 router.post("/signup",async (req,res)=>{
@@ -47,7 +49,15 @@ router.post("/signup",async (req,res)=>{
 
 router.post("/signin",async(req,res)=>{
     const {walletAddress}= req.body;
-    const response= await findUser(walletAddress);
+    // const response= await findUser(walletAddress);
+    const client = new PrismaClient()
+    const response= await client.user.findFirst(
+        {
+            where:{
+                walletAddress
+            }
+        }
+    )
     if(!response){
         res.status(401).json({
             msg:"User not found"

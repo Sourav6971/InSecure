@@ -1,6 +1,7 @@
 import express from "express"
 import userRouter from "./routes/userRouter";
 import backupRouter from "./routes/backupRouter"
+import { PrismaClient } from ".././generated/prisma";
 
 const app= express();
 app.use(express.json());

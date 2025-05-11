@@ -1,5 +1,6 @@
 import express from "express"
 import userRouter from "./routes/userRouter";
+import backupRouter from "./routes/backupRouter"
 
 const app= express();
 app.use(express.json());
@@ -12,7 +13,8 @@ app.get("/",(req,res)=>{
     })
 })
  
-app.use("/api",userRouter);
+app.use("/user",userRouter);
+app.use("/backup",backupRouter)
 
 app.listen(3000,()=>{
     console.log("App listening on port 3000")

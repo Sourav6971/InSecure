@@ -1,8 +1,9 @@
-import { PrismaClient } from "../../generated/prisma";
-const client= new PrismaClient()
+import {prisma} from "../lib/prisma"
+
 
 async function createUser(walletAddress:string,email:string){
-    const response= await client.user.create({
+    
+    const response= await prisma.user.create({
         data:{
             walletAddress,
             email
@@ -14,13 +15,61 @@ async function createUser(walletAddress:string,email:string){
     return response;
 }
 async function findUser(walletAddress:string){
-    const response = await client.user.findFirst({
+
+    const response = await prisma.user.findFirst({
         where:{
             walletAddress
-        },
+        }
         
     })
     return response;
 }
 
-export {createUser,findUser}
+async function  createBackup(userId:string,encryptedKey:string,iv:string,salt:string){
+
+
+const response = await prisma.backup.create({
+    data:{
+        userId,
+        encryptedKey,
+        iv,
+        salt
+    }
+
+})
+
+return response
+}
+
+async function getBackup(walletAddress:string){
+
+
+    const user= await prisma.user.findFirst({
+        where:{
+            walletAddress
+        }
+    })
+
+    if(!user){
+       return null
+    }
+    const userId= user?.id
+
+    const currentBackup= await prisma.backup.findFirst({
+        where:{
+            userId
+        },
+        select:{
+            encryptedKey:true,
+            salt:true,
+            iv:true
+        }
+    })
+    return currentBackup
+
+}
+
+
+
+
+export {createUser,findUser,createBackup,getBackup}

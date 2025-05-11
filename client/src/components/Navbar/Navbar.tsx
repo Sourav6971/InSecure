@@ -1,7 +1,9 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
+import Wallet from "../Wallet/Wallet";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,51 +18,54 @@ const Navbar = () => {
       <div className="large">
         <div className="Navbar">
           <div className="logo">Luna</div>
-
           <div className="menuItems">
             {menuItems.map((value, index) => (
               <ul key={index}>{value}</ul>
             ))}
           </div>
-
-          <button className="wallet">
-            Connect
-            <img src="phantom.svg" alt="" />
-          </button>
+          <Wallet />
         </div>
       </div>
 
       <div className="medium">
         <div className="logo">Luna</div>
         <div className="menu">
-          {menuOpen || (
-            <button className="wallet">
-              Connect
-              <img src="phantom.svg" alt="" />
-            </button>
-          )}
+          <div
+            className="wallet-container"
+            style={{
+              visibility: menuOpen ? "hidden" : "visible",
+              margin: "4px 15px",
+            }}
+          >
+            <Wallet />
+          </div>
           <div onClick={handleOpenMenu}>{menuOpen || <GiHamburgerMenu />}</div>
         </div>
       </div>
 
-      {menuOpen && (
-        <div className="dropdown">
-          <div className="icon">
-            <RxCross2 onClick={handleOpenMenu} />
-          </div>
-          <div className="dropdown-menu">
-            {menuItems.map((value, index) => (
-              <ul key={index}>{value}</ul>
-            ))}
-            <ul>
-              <button className="wallet">
-                Connect
-                <img src="phantom.svg" alt="" />
-              </button>
-            </ul>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="dropdown"
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <div className="icon">
+              <RxCross2 onClick={handleOpenMenu} />
+            </div>
+            <div className="dropdown-menu">
+              {menuItems.map((value, index) => (
+                <ul key={index}>{value}</ul>
+              ))}
+              <ul>
+                <Wallet />
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

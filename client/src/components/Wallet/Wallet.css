@@ -5,9 +5,10 @@
   background-color: #a99fec;
   color: white;
   border: none;
-  border-radius: 5px;
-  width: 120px;
-  height: 30px;
-  margin-top: 9px;
+  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  font-size: medium;
+  font-family: "Montserrat", sans-serif;
   cursor: pointer;
 }

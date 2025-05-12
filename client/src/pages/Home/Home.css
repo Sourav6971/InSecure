@@ -1,0 +1,19 @@
+.home {
+  background-image: linear-gradient(
+    to right top,
+    #00d6f0,
+    #00cff6,
+    #00c7fa,
+    #00befe,
+    #00b5ff,
+    #00acff,
+    #00a3ff,
+    #009aff,
+    #008ffe,
+    #0083fc,
+    #0076f9,
+    #0069f5
+  );
+  border: none;
+  height: 100%;
+}

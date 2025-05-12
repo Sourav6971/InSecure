@@ -32,13 +32,13 @@ async function connectWallet({ connected, setConnected }: ConnectWalletProps) {
         // Connect wallet
         await provider.connect?.();
         alert("Wallet connected");
+        setConnected(true);
         const walletAddress = provider.publicKey?.toString() || "";
         const connection = new Connection(clusterApiUrl("devnet"), "confirmed");
         const balance = await connection.getBalance(
           new PublicKey(walletAddress)
         );
         console.log(balance);
-        setConnected(true);
         return;
       } catch {
         alert("Could not connect wallet");

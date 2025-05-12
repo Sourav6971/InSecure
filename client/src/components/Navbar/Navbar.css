@@ -1,15 +1,22 @@
 .Navbar {
   display: flex;
   justify-content: space-between;
-  padding: 0px 10px;
+  align-items: center;
+  padding: 50px 160px;
+  color: rgb(243, 243, 243);
+  font-family: "Montserrat", sans-serif;
+  font-size: medium;
 }
 
 .logo {
   display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: x-large;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  z-index: 1; /* Keeps logo above other elements */
+  z-index: 1;
+  color: rgb(243, 243, 243);
 }
 
 .menuItems {
@@ -23,12 +30,6 @@
 
 .medium {
   display: none;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 6px;
-  padding-left: 20px;
-  position: relative; /* Keeps everything in place when the menu opens */
-  z-index: 10;
 }
 
 .menu {
@@ -43,11 +44,11 @@
 }
 
 .wallet-container {
-  visibility: visible; /* Initially visible */
+  visibility: visible;
 }
 
 .dropdown {
-  position: fixed; /* Makes dropdown overlay on top of layout */
+  position: fixed;
   top: 0;
   right: 0;
   height: 100%;
@@ -57,19 +58,19 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  z-index: 1000; /* Ensures dropdown is above everything else */
+  z-index: 1000;
 }
 
 .dropdown .icon {
   position: absolute;
   width: 35px;
-  right: 0px;
-  top: 25px;
+  right: 15px;
+  top: 65px;
 }
 
 .dropdown .dropdown-menu {
   padding: 20px;
-  margin-top: 10px;
+  margin-top: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,6 +78,7 @@
 
 .dropdown ul {
   padding-top: 50px;
+  padding-right: 30px;
   cursor: pointer;
 }
 
@@ -87,7 +89,14 @@
   .medium {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-right: 6px;
     padding-left: 20px;
+    position: relative;
+    z-index: 10;
   }
+}
+.small-screen {
+  padding-right: 80px;
+  padding-top: 50px;
 }

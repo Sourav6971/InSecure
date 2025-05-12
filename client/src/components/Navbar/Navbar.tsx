@@ -4,10 +4,19 @@ import { RxCross2 } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Navbar.css";
 import Wallet from "../Wallet/Wallet";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuItems = ["About", "Login", "Home"];
+  const navigate = useNavigate();
+
+  const handleNavigate = (value: string) => {
+    if (value === "Home") navigate("/");
+    else {
+      navigate(`/${value}`);
+    }
+  };
 
   const handleOpenMenu = () => {
     setMenuOpen(!menuOpen);
@@ -20,7 +29,13 @@ const Navbar = () => {
           <div className="logo">Luna</div>
           <div className="menuItems">
             {menuItems.map((value, index) => (
-              <ul key={index}>{value}</ul>
+              <ul
+                style={{ cursor: "pointer" }}
+                key={index}
+                onClick={() => handleNavigate(value)}
+              >
+                {value}
+              </ul>
             ))}
           </div>
           <Wallet />

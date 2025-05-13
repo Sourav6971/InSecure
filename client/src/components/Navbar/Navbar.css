@@ -1,17 +1,18 @@
 .Navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 50px 160px;
+  padding: 30px 170px;
   color: rgb(243, 243, 243);
   font-family: "Montserrat", sans-serif;
   font-size: medium;
+  z-index: 10;
 }
 
 .logo {
   display: flex;
   font-family: "Montserrat", sans-serif;
-  font-size: x-large;
+  font-size: xx-large;
   justify-content: center;
   align-items: center;
   font-weight: bold;
@@ -21,6 +22,19 @@
 
 .menuItems {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* space between menu items */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuItems li {
+  cursor: pointer;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .wallet img {
@@ -35,12 +49,10 @@
 .menu {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  width: 150px;
-}
-
-.menu div {
-  margin-top: 9px;
+  justify-content: end;
+  position: relative;
+  right: -40px;
+  top: 5px;
 }
 
 .wallet-container {
@@ -52,8 +64,9 @@
   top: 0;
   right: 0;
   height: 100%;
-  width: 60%;
-  background-color: rgba(0, 255, 255, 0.354);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.694);
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -64,28 +77,37 @@
 .dropdown .icon {
   position: absolute;
   width: 35px;
-  right: 15px;
+  right: 45px;
   top: 65px;
 }
 
-.dropdown .dropdown-menu {
+.dropdown-menu {
   padding: 20px;
-  margin-top: 90px;
+  margin-top: 130px;
   display: flex;
   flex-direction: column;
+  gap: 50px;
   align-items: center;
+  list-style: none;
 }
 
-.dropdown ul {
+.dropdown-menu li {
   padding-top: 50px;
   padding-right: 30px;
   cursor: pointer;
+
+  padding: 10px 15px;
 }
 
 @media screen and (max-width: 768px) {
   .large {
     display: none;
   }
+
+  .logo {
+    font-size: x-large;
+  }
+
   .medium {
     display: flex;
     justify-content: space-between;
@@ -95,8 +117,10 @@
     position: relative;
     z-index: 10;
   }
-}
-.small-screen {
-  padding-right: 80px;
-  padding-top: 50px;
+
+  .small-screen {
+    padding-right: 80px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
 }

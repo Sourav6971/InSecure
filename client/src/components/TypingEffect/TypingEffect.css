@@ -1,0 +1,54 @@
+.typing-container {
+  font-size: 1.5rem;
+  font-family: "Courier New", Courier, monospace;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 500px;
+  padding-right: 100px;
+}
+.typing-container p {
+  color: rgb(228, 228, 228);
+  font-family: monospace;
+  font-size: 45px;
+}
+
+.keyword {
+  color: #ffffff;
+  font-weight: bold;
+  font-style: oblique;
+  transition: all 0.3s ease-in-out;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+
+  animation: blink 0.2s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .typing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 40px;
+    height: 200px;
+    width: 340px;
+  }
+  .typing-container p {
+    font-size: xx-large;
+  }
+}

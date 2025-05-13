@@ -1,6 +1,86 @@
+#small {
+  display: none;
+}
 .top {
-  height: 400px;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-  margin-top: 20px;
   border: none;
+  animation: slide-in 1.5s ease-out forwards;
+}
+.prop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lock {
+  position: relative;
+
+  height: 400px;
+  margin-right: 0px;
+}
+.password {
+  position: relative;
+  left: -110px;
+  height: 250px;
+}
+.get-started {
+  position: relative;
+  top: -1 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.get-started button {
+  padding: 15px 70px;
+  border-radius: 10px;
+  font-size: large;
+
+  word-spacing: 6px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 30px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  background-color: #4379f2;
+  box-shadow: 1px 2px 2px black;
+  transition: transform 0.3s ease;
+  animation: slide-in 1.5s ease-out forwards;
+}
+.get-started button:hover {
+  transform: scale(105%);
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20%);
+  }
+  100% {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top {
+    display: none;
+    height: 460px;
+  }
+  #small {
+    display: block;
+  }
+  .lock {
+    height: 200px;
+    position: relative;
+    left: 60px;
+  }
+  .password {
+    height: 100px;
+    position: relative;
+    top: -60px;
+    left: 0px;
+  }
 }

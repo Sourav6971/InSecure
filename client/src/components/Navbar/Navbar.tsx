@@ -8,14 +8,22 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuItems = ["About", "Login", "Home"];
+  const menuItems = ["Home", "Login", "Docs", "Pricing"];
   const navigate = useNavigate();
 
   const handleNavigate = (value: string) => {
-    if (value === "Home") navigate("/");
-    else {
+    if (value === "Home") {
+      navigate("/");
+    } else if (value === "Pricing") {
+      navigate("/");
+      window.scrollTo({
+        top: 730,
+        behavior: "auto",
+      });
+    } else {
       navigate(`/${value}`);
     }
+    setMenuOpen(false); // close dropdown on navigation
   };
 
   const handleOpenMenu = () => {
@@ -24,39 +32,30 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Large Screen Navbar */}
       <div className="large">
         <div className="Navbar">
-          <div className="logo">Luna</div>
-          <div className="menuItems">
+          <div className="logo">InSecure</div>
+          <ul className="menuItems">
             {menuItems.map((value, index) => (
-              <ul
-                style={{ cursor: "pointer", fontSize: "large" }}
-                key={index}
-                onClick={() => handleNavigate(value)}
-              >
+              <li key={index} onClick={() => handleNavigate(value)}>
                 {value}
-              </ul>
+              </li>
             ))}
+          </ul>
+          <div className="wallet-container">
+            <Wallet />
           </div>
-          <Wallet />
         </div>
       </div>
 
+      {/* Small Screen Navbar */}
       <div className="small-screen">
         <div className="medium">
-          <div className="logo">Luna</div>
+          <div className="logo">InSecure</div>
           <div className="menu">
-            <div
-              className="wallet-container"
-              style={{
-                visibility: menuOpen ? "hidden" : "visible",
-                margin: "4px 15px",
-              }}
-            >
-              <Wallet />
-            </div>
             <div onClick={handleOpenMenu}>
-              {menuOpen || (
+              {!menuOpen && (
                 <GiHamburgerMenu
                   style={{ color: "white", marginLeft: "20px" }}
                   size={20}
@@ -65,6 +64,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+
         <AnimatePresence>
           {menuOpen && (
             <motion.div
@@ -77,14 +77,16 @@ const Navbar = () => {
               <div className="icon">
                 <RxCross2 onClick={handleOpenMenu} size={25} />
               </div>
-              <div className="dropdown-menu">
+              <ul className="dropdown-menu">
                 {menuItems.map((value, index) => (
-                  <ul key={index}>{value}</ul>
+                  <li key={index} onClick={() => handleNavigate(value)}>
+                    {value}
+                  </li>
                 ))}
-                <ul>
+                <li>
                   <Wallet />
-                </ul>
-              </div>
+                </li>
+              </ul>
             </motion.div>
           )}
         </AnimatePresence>

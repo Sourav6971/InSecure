@@ -1,0 +1,55 @@
+.pricing {
+  position: relative; /* Keep it in the natural flow */
+  margin-top: 40px; /* Add spacing if needed */
+  height: auto; /* Adjust height dynamically based on content */
+  background: #202d4c; /* fallback for old browsers */
+
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.tiers {
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  padding: 160px 0px;
+}
+.tiers div {
+  color: white;
+  border: 1px solid wheat;
+  border-radius: 20px;
+  min-height: 180px;
+  padding: 100px;
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0; /* Start fully transparent */
+    transform: translateY(20%);
+  }
+  100% {
+    opacity: 1; /* End fully visible */
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tiers {
+    padding: 150px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+  }
+  .pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tiers div {
+    height: 180px;
+    margin: 20px;
+  }
+}

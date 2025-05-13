@@ -1,4 +1,7 @@
 .home {
+  display: block;
+  height: auto;
+  width: 100%; /* Ensure it spans the full width */
   background-image: linear-gradient(
     to right top,
     #00d6f0,
@@ -15,5 +18,4 @@
     #0069f5
   );
   border: none;
-  height: 100%;
 }

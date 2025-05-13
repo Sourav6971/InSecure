@@ -11,4 +11,8 @@
   font-size: medium;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.wallet:hover {
+  transform: scale(105%);
 }

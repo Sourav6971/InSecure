@@ -1,5 +1,5 @@
 import Home from "./pages/Home/Home";
-import Auth from "./pages/Auth/Auth";
+import Profile from "./pages/Profile/Profile";
 import { Routes, Route } from "react-router-dom";
 const App = () => {
   return (
@@ -7,7 +7,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/Login" element={<Auth />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </div>
   );

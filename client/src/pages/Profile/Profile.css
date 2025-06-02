@@ -1,0 +1,58 @@
+body {
+  background-color: black;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 50px; /* optional spacing between gif and form */
+  color: white;
+  animation: slide-out 1s ease-out forwards;
+}
+
+.animation img {
+  filter: blur(2px);
+  width: 700px;
+  height: auto;
+  animation: slide-scale 2s ease-in-out forwards;
+}
+
+.auth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-47%, -50%);
+  z-index: 10;
+  color: white;
+  background-color: rgba(70, 70, 70, 0.461);
+
+  width: 380px;
+  min-height: 85vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+}
+
+@keyframes slide-scale {
+  0% {
+    transform: scale(0.7);
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(0.9);
+    filter: blur(8px); /* adjust scale factor */
+  }
+}
+
+.auth div p {
+  cursor: pointer;
+  font-family: monospace;
+  font-size: large;
+}

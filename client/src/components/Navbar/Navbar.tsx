@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuItems = ["Home", "Login", "Docs", "Pricing"];
+  const menuItems = ["Home", "Docs", "Pricing", "Profile"];
   const navigate = useNavigate();
 
   const handleNavigate = (value: string) => {

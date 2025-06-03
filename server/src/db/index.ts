@@ -25,7 +25,7 @@ async function findUser(walletAddress:string){
     return response;
 }
 
-async function  createBackup(userId:string,encryptedKey:string,iv:string,salt:string){
+async function  createBackup(userId:string,encryptedKey:string,iv:string,salt:string,nickname:string){
 
 
 const response = await prisma.backup.create({
@@ -33,7 +33,8 @@ const response = await prisma.backup.create({
         userId,
         encryptedKey,
         iv,
-        salt
+        salt,
+        nickname
     }
 
 })

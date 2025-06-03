@@ -133,7 +133,8 @@ exports.Prisma.BackupScalarFieldEnum = {
   encryptedKey: 'encryptedKey',
   iv: 'iv',
   salt: 'salt',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  nickname: 'nickname'
 };
 
 exports.Prisma.SortOrder = {

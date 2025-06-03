@@ -2064,6 +2064,7 @@ export namespace Prisma {
     iv: string | null
     salt: string | null
     createdAt: Date | null
+    nickname: string | null
   }
 
   export type BackupMaxAggregateOutputType = {
@@ -2073,6 +2074,7 @@ export namespace Prisma {
     iv: string | null
     salt: string | null
     createdAt: Date | null
+    nickname: string | null
   }
 
   export type BackupCountAggregateOutputType = {
@@ -2082,6 +2084,7 @@ export namespace Prisma {
     iv: number
     salt: number
     createdAt: number
+    nickname: number
     _all: number
   }
 
@@ -2093,6 +2096,7 @@ export namespace Prisma {
     iv?: true
     salt?: true
     createdAt?: true
+    nickname?: true
   }
 
   export type BackupMaxAggregateInputType = {
@@ -2102,6 +2106,7 @@ export namespace Prisma {
     iv?: true
     salt?: true
     createdAt?: true
+    nickname?: true
   }
 
   export type BackupCountAggregateInputType = {
@@ -2111,6 +2116,7 @@ export namespace Prisma {
     iv?: true
     salt?: true
     createdAt?: true
+    nickname?: true
     _all?: true
   }
 
@@ -2193,6 +2199,7 @@ export namespace Prisma {
     iv: string
     salt: string
     createdAt: Date
+    nickname: string
     _count: BackupCountAggregateOutputType | null
     _min: BackupMinAggregateOutputType | null
     _max: BackupMaxAggregateOutputType | null
@@ -2219,6 +2226,7 @@ export namespace Prisma {
     iv?: boolean
     salt?: boolean
     createdAt?: boolean
+    nickname?: boolean
     User?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["backup"]>
 
@@ -2229,6 +2237,7 @@ export namespace Prisma {
     iv?: boolean
     salt?: boolean
     createdAt?: boolean
+    nickname?: boolean
     User?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["backup"]>
 
@@ -2239,6 +2248,7 @@ export namespace Prisma {
     iv?: boolean
     salt?: boolean
     createdAt?: boolean
+    nickname?: boolean
     User?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["backup"]>
 
@@ -2249,9 +2259,10 @@ export namespace Prisma {
     iv?: boolean
     salt?: boolean
     createdAt?: boolean
+    nickname?: boolean
   }
 
-  export type BackupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "encryptedKey" | "iv" | "salt" | "createdAt", ExtArgs["result"]["backup"]>
+  export type BackupOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "encryptedKey" | "iv" | "salt" | "createdAt" | "nickname", ExtArgs["result"]["backup"]>
   export type BackupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2274,6 +2285,7 @@ export namespace Prisma {
       iv: string
       salt: string
       createdAt: Date
+      nickname: string
     }, ExtArgs["result"]["backup"]>
     composites: {}
   }
@@ -2704,6 +2716,7 @@ export namespace Prisma {
     readonly iv: FieldRef<"Backup", 'String'>
     readonly salt: FieldRef<"Backup", 'String'>
     readonly createdAt: FieldRef<"Backup", 'DateTime'>
+    readonly nickname: FieldRef<"Backup", 'String'>
   }
     
 
@@ -3148,7 +3161,8 @@ export namespace Prisma {
     encryptedKey: 'encryptedKey',
     iv: 'iv',
     salt: 'salt',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    nickname: 'nickname'
   };
 
   export type BackupScalarFieldEnum = (typeof BackupScalarFieldEnum)[keyof typeof BackupScalarFieldEnum]
@@ -3280,6 +3294,7 @@ export namespace Prisma {
     iv?: StringFilter<"Backup"> | string
     salt?: StringFilter<"Backup"> | string
     createdAt?: DateTimeFilter<"Backup"> | Date | string
+    nickname?: StringFilter<"Backup"> | string
     User?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -3290,6 +3305,7 @@ export namespace Prisma {
     iv?: SortOrder
     salt?: SortOrder
     createdAt?: SortOrder
+    nickname?: SortOrder
     User?: UserOrderByWithRelationInput
   }
 
@@ -3303,6 +3319,7 @@ export namespace Prisma {
     iv?: StringFilter<"Backup"> | string
     salt?: StringFilter<"Backup"> | string
     createdAt?: DateTimeFilter<"Backup"> | Date | string
+    nickname?: StringFilter<"Backup"> | string
     User?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -3313,6 +3330,7 @@ export namespace Prisma {
     iv?: SortOrder
     salt?: SortOrder
     createdAt?: SortOrder
+    nickname?: SortOrder
     _count?: BackupCountOrderByAggregateInput
     _max?: BackupMaxOrderByAggregateInput
     _min?: BackupMinOrderByAggregateInput
@@ -3328,6 +3346,7 @@ export namespace Prisma {
     iv?: StringWithAggregatesFilter<"Backup"> | string
     salt?: StringWithAggregatesFilter<"Backup"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Backup"> | Date | string
+    nickname?: StringWithAggregatesFilter<"Backup"> | string
   }
 
   export type UserCreateInput = {
@@ -3389,6 +3408,7 @@ export namespace Prisma {
     iv: string
     salt: string
     createdAt?: Date | string
+    nickname: string
     User: UserCreateNestedOneWithoutBackupsInput
   }
 
@@ -3399,6 +3419,7 @@ export namespace Prisma {
     iv: string
     salt: string
     createdAt?: Date | string
+    nickname: string
   }
 
   export type BackupUpdateInput = {
@@ -3407,6 +3428,7 @@ export namespace Prisma {
     iv?: StringFieldUpdateOperationsInput | string
     salt?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nickname?: StringFieldUpdateOperationsInput | string
     User?: UserUpdateOneRequiredWithoutBackupsNestedInput
   }
 
@@ -3417,6 +3439,7 @@ export namespace Prisma {
     iv?: StringFieldUpdateOperationsInput | string
     salt?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nickname?: StringFieldUpdateOperationsInput | string
   }
 
   export type BackupCreateManyInput = {
@@ -3426,6 +3449,7 @@ export namespace Prisma {
     iv: string
     salt: string
     createdAt?: Date | string
+    nickname: string
   }
 
   export type BackupUpdateManyMutationInput = {
@@ -3434,6 +3458,7 @@ export namespace Prisma {
     iv?: StringFieldUpdateOperationsInput | string
     salt?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nickname?: StringFieldUpdateOperationsInput | string
   }
 
   export type BackupUncheckedUpdateManyInput = {
@@ -3443,6 +3468,7 @@ export namespace Prisma {
     iv?: StringFieldUpdateOperationsInput | string
     salt?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nickname?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3546,6 +3572,7 @@ export namespace Prisma {
     iv?: SortOrder
     salt?: SortOrder
     createdAt?: SortOrder
+    nickname?: SortOrder
   }
 
   export type BackupMaxOrderByAggregateInput = {
@@ -3555,6 +3582,7 @@ export namespace Prisma {
     iv?: SortOrder
     salt?: SortOrder
     createdAt?: SortOrder
+    nickname?: SortOrder
   }
 
   export type BackupMinOrderByAggregateInput = {
@@ -3564,6 +3592,7 @@ export namespace Prisma {
     iv?: SortOrder
     salt?: SortOrder
     createdAt?: SortOrder
+    nickname?: SortOrder
   }
 
   export type BackupCreateNestedManyWithoutUserInput = {
@@ -3703,6 +3732,7 @@ export namespace Prisma {
     iv: string
     salt: string
     createdAt?: Date | string
+    nickname: string
   }
 
   export type BackupUncheckedCreateWithoutUserInput = {
@@ -3711,6 +3741,7 @@ export namespace Prisma {
     iv: string
     salt: string
     createdAt?: Date | string
+    nickname: string
   }
 
   export type BackupCreateOrConnectWithoutUserInput = {
@@ -3749,6 +3780,7 @@ export namespace Prisma {
     iv?: StringFilter<"Backup"> | string
     salt?: StringFilter<"Backup"> | string
     createdAt?: DateTimeFilter<"Backup"> | Date | string
+    nickname?: StringFilter<"Backup"> | string
   }
 
   export type UserCreateWithoutBackupsInput = {
@@ -3801,6 +3833,7 @@ export namespace Prisma {
     iv: string
     salt: string
     createdAt?: Date | string
+    nickname: string
   }
 
   export type BackupUpdateWithoutUserInput = {
@@ -3809,6 +3842,7 @@ export namespace Prisma {
     iv?: StringFieldUpdateOperationsInput | string
     salt?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nickname?: StringFieldUpdateOperationsInput | string
   }
 
   export type BackupUncheckedUpdateWithoutUserInput = {
@@ -3817,6 +3851,7 @@ export namespace Prisma {
     iv?: StringFieldUpdateOperationsInput | string
     salt?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nickname?: StringFieldUpdateOperationsInput | string
   }
 
   export type BackupUncheckedUpdateManyWithoutUserInput = {
@@ -3825,6 +3860,7 @@ export namespace Prisma {
     iv?: StringFieldUpdateOperationsInput | string
     salt?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    nickname?: StringFieldUpdateOperationsInput | string
   }
 
 

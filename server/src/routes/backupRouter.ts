@@ -11,7 +11,7 @@ const router= Router();
 
 router.post("/create-backup",userMiddleware,async(req,res)=>{
 
-const{encryptedKey,iv,salt}=req.body;
+const{encryptedKey,iv,salt,nickname}=req.body;
 const walletAddress= req.walletAddress;
 
 const user= await findUser(walletAddress);
@@ -26,7 +26,7 @@ if(!user){
 
 const userId= user.id;
 
-const response=await createBackup(userId,encryptedKey,iv,salt);
+const response=await createBackup(userId,encryptedKey,iv,salt,nickname);
 if(!response){
 res.json({
     msg:"Could not create Backup"

@@ -30,4 +30,5 @@ model Backup {
   iv           String
   salt         String
   createdAt    DateTime @default(now())
+  nickname     String
 }
